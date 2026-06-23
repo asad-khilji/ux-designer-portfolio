@@ -325,3 +325,11 @@ footer {
     padding: 60px 5%;
   }
 }
+
+
+.project-preview-image{
+  width:100%;
+  display:block;
+  border-radius:16px;
+  object-fit:cover;
+}
