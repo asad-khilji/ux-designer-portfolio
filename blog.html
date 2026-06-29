@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UX Design Journal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f6f8fb;
+    color:#1f2937;
+    line-height:1.7;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#fff;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.6rem;
+    font-weight:700;
+    color:#2563eb;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    color:#374151;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+header{
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+header p{
+    max-width:750px;
+    margin:auto;
+    opacity:.95;
+    font-size:1.1rem;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:60px auto;
+    display:grid;
+    grid-template-columns:2.1fr 1fr;
+    gap:35px;
+}
+
+.post{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.post:hover{
+    transform:translateY(-8px);
+}
+
+.post img{
+    height:320px;
+    object-fit:cover;
+}
+
+.post-content{
+    padding:30px;
+}
+
+.category{
+    display:inline-block;
+    background:#dbeafe;
+    color:#2563eb;
+    padding:7px 16px;
+    border-radius:30px;
+    font-size:.8rem;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.post h2{
+    font-size:2rem;
+    margin-bottom:12px;
+}
+
+.meta{
+    color:#6b7280;
+    margin-bottom:18px;
+    font-size:.9rem;
+}
+
+.post p{
+    color:#4b5563;
+}
+
+.read-more{
+    display:inline-block;
+    margin-top:25px;
+    background:#2563eb;
+    color:white;
+    padding:12px 22px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.read-more:hover{
+    background:#1d4ed8;
+}
+
+.sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:28px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-bottom:18px;
+    color:#111827;
+}
+
+.card p{
+    color:#4b5563;
+}
+
+.card ul{
+    list-style:none;
+}
+
+.card li{
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.card li:last-child{
+    border:none;
+}
+
+.card a{
+    color:#374151;
+}
+
+.card a:hover{
+    color:#2563eb;
+}
+
+.newsletter input{
+    width:100%;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+.newsletter button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
+
+.newsletter button:hover{
+    background:#1d4ed8;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:60px;
+}
+
+@media(max-width:900px){
+
+.container{
+    grid-template-columns:1fr;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+header h1{
+    font-size:2.2rem;
+}
+
+.post img{
+    height:240px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">
+UX Journal
+</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Articles</a></li>
+<li><a href="#">Case Studies</a></li>
+<li><a href="#">Resources</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
+<header>
+
+<h1>UX Design Journal</h1>
+
+<p>
+Exploring user experience, product strategy, accessibility,
+design systems, and human-centered design through practical
+articles and industry insights.
+</p>
+
+</header>
+
+<div class="container">
+
+<div>
+
+<article class="post">
+
+<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200" alt="UX Research">
+
+<div class="post-content">
+
+<span class="category">User Research</span>
+
+<h2>Why User Research Should Guide Every Product Decision</h2>
+
+<p class="meta">8 min read • UX Research</p>
+
+<p>
+Successful products begin with understanding people.
+Research uncovers user behaviors, expectations, and pain
+points before development begins, helping teams reduce
+assumptions and design solutions that solve real problems.
+</p>
+
+<a href="#" class="read-more">Read Article</a>
+
+</div>
+
+</article>
+
+<article class="post">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200" alt="Design System">
+
+<div class="post-content">
+
+<span class="category">Design Systems</span>
+
+<h2>Creating Design Systems That Scale Across Product Teams</h2>
+
+<p class="meta">6 min read • Product Design</p>
+
+<p>
+A well-designed system improves collaboration between
+designers and developers while ensuring accessibility,
+consistency, and faster product delivery across multiple
+platforms.
+</p>
+
+<a href="#" class="read-more">Read Article</a>
+
+</div>
+
+</article>
+
+<article class="post">
+
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200" alt="Wireframing">
+
+<div class="post-content">
+
+<span class="category">UX Process</span>
+
+<h2>From Wireframes to High-Fidelity Experiences</h2>
+
+<p class="meta">7 min read • UX Process</p>
+
+<p>
+Design is an iterative process. Starting with low-fidelity
+wireframes enables quick validation before moving into
+interactive prototypes and polished interfaces backed by
+usability testing.
+</p>
+
+<a href="#" class="read-more">Read Article</a>
+
+</div>
+
+</article>
+
+</div>
+
+<aside class="sidebar">
+
+<div class="card">
+
+<h3>About This Journal</h3>
+
+<p>
+A collection of articles about user experience design,
+interaction design, accessibility, product thinking,
+design systems, usability testing, and digital innovation.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Topics</h3>
+
+<ul>
+<li><a href="#">User Experience</a></li>
+<li><a href="#">Interaction Design</a></li>
+<li><a href="#">Accessibility</a></li>
+<li><a href="#">User Research</a></li>
+<li><a href="#">Design Systems</a></li>
+<li><a href="#">Product Strategy</a></li>
+<li><a href="#">Prototyping</a></li>
+<li><a href="#">Usability Testing</a></li>
+</ul>
+
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+<footer>
+
+<p>
+© 2026 UX Design Journal. Crafted with a passion for thoughtful product design and meaningful user experiences.
+</p>
+
+</footer>
+
+</body>
+</html>
