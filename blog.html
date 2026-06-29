@@ -1,415 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UX Design Journal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why User Research Should Guide Every Product Decision</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
 
-<style>
+    body {
+      background: linear-gradient(135deg, #eef2ff, #f8fafc);
+      color: #1f2937;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    .blog-container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 50px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    }
 
-body{
-    font-family:'Inter',sans-serif;
-    background:#f6f8fb;
-    color:#1f2937;
-    line-height:1.7;
-}
+    .tag {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #4338ca;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
 
-a{
-    text-decoration:none;
-}
+    h1 {
+      font-size: 42px;
+      line-height: 1.2;
+      color: #111827;
+      margin-bottom: 20px;
+    }
 
-img{
-    width:100%;
-    display:block;
-}
+    .intro {
+      font-size: 19px;
+      color: #4b5563;
+      margin-bottom: 35px;
+    }
 
-nav{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:#fff;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+    h2 {
+      font-size: 26px;
+      color: #312e81;
+      margin-top: 35px;
+      margin-bottom: 12px;
+    }
 
-.logo{
-    font-size:1.6rem;
-    font-weight:700;
-    color:#2563eb;
-}
+    p {
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
 
-nav ul{
-    display:flex;
-    gap:30px;
-    list-style:none;
-}
+    .highlight-box {
+      background: #f1f5f9;
+      border-left: 5px solid #6366f1;
+      padding: 22px;
+      border-radius: 14px;
+      margin: 30px 0;
+    }
 
-nav a{
-    color:#374151;
-    font-weight:500;
-    transition:.3s;
-}
+    .highlight-box p {
+      margin-bottom: 0;
+      font-weight: 600;
+      color: #374151;
+    }
 
-nav a:hover{
-    color:#2563eb;
-}
+    ul {
+      margin: 15px 0 25px 25px;
+    }
 
-header{
-    background:linear-gradient(135deg,#2563eb,#4f46e5);
-    color:white;
-    text-align:center;
-    padding:90px 20px;
-}
+    li {
+      margin-bottom: 10px;
+      font-size: 17px;
+    }
 
-header h1{
-    font-size:3rem;
-    margin-bottom:15px;
-}
+    .portfolio-btn {
+      display: inline-block;
+      margin-top: 40px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+    }
 
-header p{
-    max-width:750px;
-    margin:auto;
-    opacity:.95;
-    font-size:1.1rem;
-}
+    .portfolio-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(79, 70, 229, 0.45);
+    }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:60px auto;
-    display:grid;
-    grid-template-columns:2.1fr 1fr;
-    gap:35px;
-}
+    .button-wrapper {
+      text-align: center;
+    }
 
-.post{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    margin-bottom:35px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    transition:.3s;
-}
+    @media (max-width: 600px) {
+      .blog-container {
+        padding: 30px 22px;
+      }
 
-.post:hover{
-    transform:translateY(-8px);
-}
+      h1 {
+        font-size: 32px;
+      }
 
-.post img{
-    height:320px;
-    object-fit:cover;
-}
-
-.post-content{
-    padding:30px;
-}
-
-.category{
-    display:inline-block;
-    background:#dbeafe;
-    color:#2563eb;
-    padding:7px 16px;
-    border-radius:30px;
-    font-size:.8rem;
-    font-weight:600;
-    margin-bottom:18px;
-}
-
-.post h2{
-    font-size:2rem;
-    margin-bottom:12px;
-}
-
-.meta{
-    color:#6b7280;
-    margin-bottom:18px;
-    font-size:.9rem;
-}
-
-.post p{
-    color:#4b5563;
-}
-
-.read-more{
-    display:inline-block;
-    margin-top:25px;
-    background:#2563eb;
-    color:white;
-    padding:12px 22px;
-    border-radius:10px;
-    transition:.3s;
-}
-
-.read-more:hover{
-    background:#1d4ed8;
-}
-
-.sidebar{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-}
-
-.card{
-    background:white;
-    padding:28px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.card h3{
-    margin-bottom:18px;
-    color:#111827;
-}
-
-.card p{
-    color:#4b5563;
-}
-
-.card ul{
-    list-style:none;
-}
-
-.card li{
-    padding:12px 0;
-    border-bottom:1px solid #eee;
-}
-
-.card li:last-child{
-    border:none;
-}
-
-.card a{
-    color:#374151;
-}
-
-.card a:hover{
-    color:#2563eb;
-}
-
-.newsletter input{
-    width:100%;
-    padding:13px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    margin-bottom:15px;
-    font-size:15px;
-}
-
-.newsletter button{
-    width:100%;
-    padding:14px;
-    border:none;
-    background:#2563eb;
-    color:white;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:600;
-}
-
-.newsletter button:hover{
-    background:#1d4ed8;
-}
-
-footer{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:30px;
-    margin-top:60px;
-}
-
-@media(max-width:900px){
-
-.container{
-    grid-template-columns:1fr;
-}
-
-nav{
-    flex-direction:column;
-    gap:15px;
-}
-
-header h1{
-    font-size:2.2rem;
-}
-
-.post img{
-    height:240px;
-}
-
-}
-
-</style>
-
+      .intro {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="blog-container">
+    <span class="tag">User Research</span>
 
-<nav>
+    <h1>Why User Research Should Guide Every Product Decision</h1>
 
-<div class="logo">
-UX Journal
-</div>
+    <p class="intro">
+      Great products are not built on assumptions. They are built by understanding real users, their needs, their pain points, and the problems they want solved.
+    </p>
 
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">Articles</a></li>
-<li><a href="#">Case Studies</a></li>
-<li><a href="#">Resources</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
+    <h2>Understanding Users Comes First</h2>
+    <p>
+      User research helps product teams understand who their users are and what they truly need. Instead of guessing what features might work, teams can make decisions based on real feedback and behavior.
+    </p>
 
-</nav>
+    <h2>It Reduces Product Risk</h2>
+    <p>
+      Building a product without research can lead to wasted time, money, and effort. User research helps identify problems early, before teams invest heavily in design or development.
+    </p>
 
-<header>
+    <div class="highlight-box">
+      <p>When product decisions are guided by users, teams build solutions that are more useful, usable, and valuable.</p>
+    </div>
 
-<h1>UX Design Journal</h1>
+    <h2>It Improves User Experience</h2>
+    <p>
+      A product may look beautiful, but if users struggle to use it, it will fail. Research methods like usability testing reveal where users get confused, stuck, or frustrated.
+    </p>
 
-<p>
-Exploring user experience, product strategy, accessibility,
-design systems, and human-centered design through practical
-articles and industry insights.
-</p>
+    <h2>It Helps Prioritize the Right Features</h2>
+    <p>
+      Every product team has limited time and resources. User research helps teams focus on features that solve the most important problems rather than building features based on opinions or trends.
+    </p>
 
-</header>
+    <ul>
+      <li>Understand user needs clearly</li>
+      <li>Validate product ideas before launch</li>
+      <li>Improve usability and satisfaction</li>
+      <li>Make smarter product decisions</li>
+      <li>Create better business outcomes</li>
+    </ul>
 
-<div class="container">
+    <h2>Conclusion</h2>
+    <p>
+      User research should not be treated as a one-time activity. It should guide every stage of the product journey, from discovery and design to development and growth. When teams listen to users, they create products that people actually want to use.
+    </p>
 
-<div>
-
-<article class="post">
-
-<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200" alt="UX Research">
-
-<div class="post-content">
-
-<span class="category">User Research</span>
-
-<h2>Why User Research Should Guide Every Product Decision</h2>
-
-<p class="meta">8 min read • UX Research</p>
-
-<p>
-Successful products begin with understanding people.
-Research uncovers user behaviors, expectations, and pain
-points before development begins, helping teams reduce
-assumptions and design solutions that solve real problems.
-</p>
-
-<a href="#" class="read-more">Read Article</a>
-
-</div>
-
-</article>
-
-<article class="post">
-
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200" alt="Design System">
-
-<div class="post-content">
-
-<span class="category">Design Systems</span>
-
-<h2>Creating Design Systems That Scale Across Product Teams</h2>
-
-<p class="meta">6 min read • Product Design</p>
-
-<p>
-A well-designed system improves collaboration between
-designers and developers while ensuring accessibility,
-consistency, and faster product delivery across multiple
-platforms.
-</p>
-
-<a href="#" class="read-more">Read Article</a>
-
-</div>
-
-</article>
-
-<article class="post">
-
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200" alt="Wireframing">
-
-<div class="post-content">
-
-<span class="category">UX Process</span>
-
-<h2>From Wireframes to High-Fidelity Experiences</h2>
-
-<p class="meta">7 min read • UX Process</p>
-
-<p>
-Design is an iterative process. Starting with low-fidelity
-wireframes enables quick validation before moving into
-interactive prototypes and polished interfaces backed by
-usability testing.
-</p>
-
-<a href="#" class="read-more">Read Article</a>
-
-</div>
-
-</article>
-
-</div>
-
-<aside class="sidebar">
-
-<div class="card">
-
-<h3>About This Journal</h3>
-
-<p>
-A collection of articles about user experience design,
-interaction design, accessibility, product thinking,
-design systems, usability testing, and digital innovation.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Topics</h3>
-
-<ul>
-<li><a href="#">User Experience</a></li>
-<li><a href="#">Interaction Design</a></li>
-<li><a href="#">Accessibility</a></li>
-<li><a href="#">User Research</a></li>
-<li><a href="#">Design Systems</a></li>
-<li><a href="#">Product Strategy</a></li>
-<li><a href="#">Prototyping</a></li>
-<li><a href="#">Usability Testing</a></li>
-</ul>
-
-</div>
-    <a href="index.html">View My UX Design Portfolio</a>
-</div>
-
-</aside>
-
-</div>
-
-<footer>
-
-<p>
-© 2026 UX Design Journal. Crafted with a passion for thoughtful product design and meaningful user experiences.
-</p>
-
-</footer>
-
+    <div class="button-wrapper">
+      <a href="index.html" class="portfolio-btn">View My Portfolio</a>
+    </div>
+  </div>
 </body>
 </html>
